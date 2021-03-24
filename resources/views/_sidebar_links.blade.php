@@ -8,3 +8,7 @@
     <li><a href="{{ route('profile', auth()->user()) }}" class="font-bold">Profile</a></li>
     <li><a href="" class="font-bold">More</a></li>
 </ul>
+
+<?php
+
+?>

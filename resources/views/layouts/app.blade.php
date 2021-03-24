@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,6 +20,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 </head>
+
 <body>
     <div id="app">
         <section class="px-8 py-4 mb-6">
@@ -35,20 +37,26 @@
         </section>
 
         <section class="px-8">
-            <main class="container mx-auto"><div class="lg:flex">
-                <div class="lg:w-1/6">
-                    @include('_sidebar_links')
-                </div>
-                <div class="lg:flex-1 lg:mx-10" style="max-width:700px;">
-                    @yield('content')
-                </div>
+            <main class="container mx-auto">
+                <div class="lg:flex">
+                    @auth
+                    <div class="lg:w-1/6">
+                        @include('_sidebar_links')
+                    </div>
+                    @endauth
+                    <div class="lg:flex-1 lg:mx-10" style="max-width:700px;">
+                        @yield('content')
+                    </div>
 
-                <div class="lg:w-1/6 lg:ml-10 rounded-lg bg-blue-200">
-                    @include('_friends-list')
-                </div>
+                    @auth
+                    <div class="lg:w-1/6 lg:ml-10 rounded-lg bg-blue-200">
+                        @include('_friends-list')
+                    </div>
+                    @endauth
 
             </main>
         </section>
     </div>
 </body>
+
 </html>
